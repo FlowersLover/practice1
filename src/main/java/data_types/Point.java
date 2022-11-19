@@ -66,14 +66,14 @@ class Points {
         return new Point(p1.y * p2.z - p1.z * p2.y, p1.z * p2.x - p1.x * p2.z, p1.x * p2.y - p1.y * p2.x);
     }
 
-    private boolean equalsApproximately(double x, double y) {
+    public static boolean equalsApproximately(double x, double y) {
         if (abs(x - y) <= aproximation) {
             return true;
         }
         return false;
     }
 
-    private boolean equalsApproximately(Point p1, Point p2) {
+    public static boolean equalsApproximately(Point p1, Point p2) {
         if (equalsApproximately(p1.x, p2.x)
                 & equalsApproximately(p1.y, p2.y)
                 & equalsApproximately(p1.z, p2.z)) {
