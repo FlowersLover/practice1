@@ -126,29 +126,31 @@ public class PointsTest {
     public void testScalarProduct() {
         Point point = new Point(1.7, 2.8, 3.9);
         Point point1 = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.scalarProduct(point, point1), 0.414634 , aproximation);
-        assertEquals(Points.scalarProduct(point, point1), 0.414634 , aproximation);
-        Point point2 = new Point(-1, 1, 0);
-        Point point3 = new Point(0, 0, 0);
-        assertEquals(Points.scalarProduct(point2, point3), NEGATIVE_INFINITY);
-        assertEquals(Points.scalarProduct(point2, point3), POSITIVE_INFINITY);
+        assertEquals(Points.scalarProduct(point, point1), 1.7*4.1+2.8*5.2+3.9*0.3 , aproximation);
+        Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
+        Point point3 = new Point(1, 1, 1);
+        assertEquals(Points.scalarProduct(point2, point3), NaN);
     }
 
     @Test
     public void testVectorProduct() {
         Point point = new Point(1.7, 2.8, 3.9);
         Point point1 = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.divide(point, point1).x, 0.414634 , aproximation);
-        assertEquals(Points.divide(point, point1).y, 0.538461, aproximation);
-        assertEquals(Points.divide(point, point1).z, 13, aproximation);
-        Point point2 = new Point(-1, 1, 0);
-        Point point3 = new Point(0, 0, 0);
-        assertEquals(Points.divide(point2, point3).x, NEGATIVE_INFINITY);
-        assertEquals(Points.divide(point2, point3).y, POSITIVE_INFINITY);
-        assertEquals(Points.divide(point2, point3).z, NaN);
+        assertEquals(Points.vectorProduct(point, point1).x, -19.44 , aproximation);
+        assertEquals(Points.vectorProduct(point, point1).y, 15.48, aproximation);
+        assertEquals(Points.vectorProduct(point, point1).z, -2.64, aproximation);
+        Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
+        Point point3 = new Point(1., 1., 1.);
+        assertEquals(Points.vectorProduct(point2, point3).x, NaN);
+        assertEquals(Points.vectorProduct(point2, point3).y, NaN);
+        assertEquals(Points.vectorProduct(point2, point3).z, NEGATIVE_INFINITY);
     }
     @Test
     public void testEqualsApproximately(){
-
+        Point x = new Point(1.,2.,3.);
+        Point y = new Point(4.,5.,6.);
+        assertTrue(Points.equalsApproximately(1., 1.00000000000001));
+        assertFalse(Points.equalsApproximately(1, 0.5));
+        assertFalse(Points.equalsApproximately(Points.scalarProduct(x, y), 1));
     }
 }
