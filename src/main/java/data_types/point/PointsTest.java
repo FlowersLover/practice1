@@ -1,4 +1,4 @@
-package data_types;
+package data_types.point;
 
 import org.testng.annotations.Test;
 
@@ -57,7 +57,7 @@ public class PointsTest {
     public void testDivide() {
         Point point = new Point(1.7, 2.8, 3.9);
         Point point1 = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.divide(point, point1).x, 0.414634 , aproximation);
+        assertEquals(Points.divide(point, point1).x, 0.414634, aproximation);
         assertEquals(Points.divide(point, point1).y, 0.538461, aproximation);
         assertEquals(Points.divide(point, point1).z, 13, aproximation);
         Point point2 = new Point(-1, 1, 0);
@@ -69,15 +69,15 @@ public class PointsTest {
 
     @Test
     public void testEnlarge() {
-        double constant=12.3;
+        double constant = 12.3;
         Point point = new Point(656.56, 52.08, 20.05);
-        assertEquals(Points.enlarge(point, constant).x, 8075.688 , aproximation);
+        assertEquals(Points.enlarge(point, constant).x, 8075.688, aproximation);
         assertEquals(Points.enlarge(point, constant).y, 640.584, aproximation);
         assertEquals(Points.enlarge(point, constant).z, 246.615, aproximation);
 
         double constant1 = 45.6;
         Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
-        assertEquals(Points.enlarge(point2, constant1).x, NEGATIVE_INFINITY , aproximation);
+        assertEquals(Points.enlarge(point2, constant1).x, NEGATIVE_INFINITY, aproximation);
         assertEquals(Points.enlarge(point2, constant1).y, POSITIVE_INFINITY, aproximation);
         assertEquals(Points.enlarge(point2, constant1).z, NaN, aproximation);
     }
@@ -86,7 +86,7 @@ public class PointsTest {
     public void testLength() {
         Point point = new Point(1.7, 2.8, 3.9);
         Point point1 = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.divide(point, point1).x, 0.414634 , aproximation);
+        assertEquals(Points.divide(point, point1).x, 0.414634, aproximation);
         assertEquals(Points.divide(point, point1).y, 0.538461, aproximation);
         assertEquals(Points.divide(point, point1).z, 13, aproximation);
         Point point2 = new Point(-1, 1, 0);
@@ -100,11 +100,11 @@ public class PointsTest {
     @Test
     public void testOpposite() {
         Point point = new Point(656.56, 52.08, 20.05);
-        assertEquals(Points.opposite(point).x, -656.56 , aproximation);
+        assertEquals(Points.opposite(point).x, -656.56, aproximation);
         assertEquals(Points.opposite(point).y, -52.08, aproximation);
         assertEquals(Points.opposite(point).z, -20.05, aproximation);
         Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
-        assertEquals(Points.opposite(point2).x, -NEGATIVE_INFINITY , aproximation);
+        assertEquals(Points.opposite(point2).x, -NEGATIVE_INFINITY, aproximation);
         assertEquals(Points.opposite(point2).y, -POSITIVE_INFINITY, aproximation);
         assertEquals(Points.opposite(point2).z, NaN, aproximation);
     }
@@ -112,11 +112,11 @@ public class PointsTest {
     @Test
     public void testInverse() {
         Point point = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.inverse(point).x, 1/4.1 , aproximation);
-        assertEquals(Points.inverse(point).y, 1/5.2, aproximation);
-        assertEquals(Points.inverse(point).z, 1/0.3, aproximation);
+        assertEquals(Points.inverse(point).x, 1 / 4.1, aproximation);
+        assertEquals(Points.inverse(point).y, 1 / 5.2, aproximation);
+        assertEquals(Points.inverse(point).z, 1 / 0.3, aproximation);
         Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
-        assertEquals(Points.inverse(point2).x,-0.0 );
+        assertEquals(Points.inverse(point2).x, -0.0);
         assertEquals(Points.inverse(point2).y, 0.);
         assertEquals(Points.inverse(point2).z, NaN);
 
@@ -126,7 +126,7 @@ public class PointsTest {
     public void testScalarProduct() {
         Point point = new Point(1.7, 2.8, 3.9);
         Point point1 = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.scalarProduct(point, point1), 1.7*4.1+2.8*5.2+3.9*0.3 , aproximation);
+        assertEquals(Points.scalarProduct(point, point1), 1.7 * 4.1 + 2.8 * 5.2 + 3.9 * 0.3, aproximation);
         Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
         Point point3 = new Point(1, 1, 1);
         assertEquals(Points.scalarProduct(point2, point3), NaN);
@@ -136,7 +136,7 @@ public class PointsTest {
     public void testVectorProduct() {
         Point point = new Point(1.7, 2.8, 3.9);
         Point point1 = new Point(4.1, 5.2, 0.3);
-        assertEquals(Points.vectorProduct(point, point1).x, -19.44 , aproximation);
+        assertEquals(Points.vectorProduct(point, point1).x, -19.44, aproximation);
         assertEquals(Points.vectorProduct(point, point1).y, 15.48, aproximation);
         assertEquals(Points.vectorProduct(point, point1).z, -2.64, aproximation);
         Point point2 = new Point(NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN);
@@ -145,10 +145,11 @@ public class PointsTest {
         assertEquals(Points.vectorProduct(point2, point3).y, NaN);
         assertEquals(Points.vectorProduct(point2, point3).z, NEGATIVE_INFINITY);
     }
+
     @Test
-    public void testEqualsApproximately(){
-        Point x = new Point(1.,2.,3.);
-        Point y = new Point(4.,5.,6.);
+    public void testEqualsApproximately() {
+        Point x = new Point(1., 2., 3.);
+        Point y = new Point(4., 5., 6.);
         assertTrue(Points.equalsApproximately(1., 1.00000000000001));
         assertFalse(Points.equalsApproximately(1, 0.5));
         assertFalse(Points.equalsApproximately(Points.scalarProduct(x, y), 1));

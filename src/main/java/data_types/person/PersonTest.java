@@ -1,5 +1,6 @@
-package data_types;
+package data_types.person;
 
+import data_types.person.Person;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

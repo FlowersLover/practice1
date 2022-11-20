@@ -1,9 +1,10 @@
-package data_types;
+package data_types.person;
 
 public class Person {
     private String firstName;
     private String lastName;
     private int passsportId;
+    private Gender gender;
 
     public Person() {
 
@@ -22,6 +23,19 @@ public class Person {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passsportId = passsportId;
+    }
+
+    public Person(String firstName, String lastName, Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+    }
+
+    public Person(String firstName, String lastName, int passsportId, Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.passsportId = passsportId;
+        this.gender = gender;
     }
 
     public String getFirstName() {
@@ -48,16 +62,23 @@ public class Person {
         this.passsportId = passsportId;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 }
 
-class MyTest {
+class Main {
     public static void main(String[] args) {
         Person person = new Person();
         Person person1 = new Person();
         Person person2 = new Person();
-        Person person3 = new Person("Sasha","Tsarkov");
+        Person person3 = new Person("Sasha", "Tsarkov");
         Person person4 = new Person(4);
-        Person person5 = new Person("Liza","Abdullina",5);
+        Person person5 = new Person("Liza", "Abdullina", 5);
         person1.setFirstName("Dasha");
         person1.setLastName("Murashkina");
         person1.setPasssportId(1);

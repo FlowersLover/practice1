@@ -1,26 +1,8 @@
-package data_types;
+package data_types.point;
 
 import static java.lang.Math.abs;
-import static java.lang.Math.sqrt;
 
-public class
-Point {
-    public double x;
-    public double y;
-    public double z;
-
-    public Point(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-
-    public double length() {
-        return sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
-    }
-}
-
-class Points {
+public class Points {
     public static double aproximation = 0.000005;
 
     public Points() {
@@ -81,39 +63,4 @@ class Points {
         }
         return false;
     }
-
-}
-
-class NamedPoint extends Point {
-    private String name;
-
-    public NamedPoint(double x, double y, double z) {
-        super(x, y, z);
-    }
-
-    public NamedPoint(double x, double y, double z, String name) {
-        super(x, y, z);
-        this.name = name;
-    }
-
-    public NamedPoint() {
-        this(0, 0, 0, "Origin");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-}
-
-class Main {
-    public static void main(String[] args) {
-        Point point = new Point(1, 2, 3);
-        Point point1 = new Point(4, 5, 6);
-        Point point2 = new Point(7, 8, 9);
-    }
-
 }
